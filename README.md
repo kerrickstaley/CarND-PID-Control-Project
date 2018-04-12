@@ -9,9 +9,10 @@ between the car and the center of the road. The goal of the PID controller is to
 minimize average CTE (and also make sure that at no time is CTE so large that the car drives off
 the road).
 
-The PID controller sets the steering angle based on Kp, Ki, and Kd coefficients. The exact formula is
+The PID controller sets the steering angle (called `output` below) based on `Kp`, `Ki`, and `Kd` coefficients.
+The exact formula is
 
-    steer = -Kp * error - Ki * error_integ - Kd * error_deriv
+    output = -Kp * error - Ki * error_integ - Kd * error_deriv
 
 where `error_integ` is the time integral of `error` and `error_deriv` is the time derivative of `error`.
 The `-Kp * error` term is the principle feedback mechanism, whereby positive (rightwards) errors translate to negative
@@ -28,4 +29,4 @@ for the most part, but it wasn't reacting quickly enough as it approached curves
 
 If I had more time I'd use an optimization algorithm like Twiddle to find a better set of parameters that make the car
 drive more smoothly. The car currently stays on the track but it nearly veers off at several points and its driving is
-generally jerky.
+jerky.
